@@ -1,6 +1,7 @@
 {
   "name": "__MSG_extName__",
   "version": "0.10.0",
+  "manifest_version": 2,
   "description": "__MSG_extDescription__",
   "default_locale": "en",
   "icons": {
@@ -20,14 +21,16 @@
         "ftp://*/*"
       ],
       "js": [
-        "js/lib/jquery.1.4.2.min.js",
-        "js/lib/jquery.hotkeys-0.7.9.min.js",
+        "js/lib/jquery-2.1.4.min.js",
+        "js/lib/jquery.hotkeys-0.8.js",
         "js/activate_hotkey.js"
       ],
       "run_at": "document_start"
     }
   ],
-  "background_page": "background.html",
+  "background": {
+    "page": "background.html"
+  },
   "options_page": "options.html",
   "minimum_chrome_version": "13",
   "permissions": [

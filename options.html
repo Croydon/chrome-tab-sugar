@@ -27,91 +27,85 @@
 
 <html>
 <head>
-  <title>Tab Sugar Options</title>
-  <link href="css/options.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="js/lib/jquery.1.4.2.min.js" type="text/javascript"></script>
-  <script src="js/lib/jquery-ui.1.8.2.min.js" type="text/javascript"></script>
-  <script src="js/lib/jquery.hotkeys-0.7.9.min.js" type="text/javascript"></script>
-  <script src="js/lib/JS.Class.2-1-5/core.js" type="text/javascript"></script>
-  <script src="js/lib/JS.Class.2-1-5/stdlib.js" type="text/javascript"></script>
-  <script src="js/lib/jquery.client.js" type="text/javascript"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('h1').html('Tab Sugar '+chrome.i18n.getMessage("optionsTitle"));
-    $('h2').html(chrome.i18n.getMessage("optionsTitle"));
-    $('.activate').html(chrome.i18n.getMessage("optionsActivate"));
-    $('.experimental').html('('+chrome.i18n.getMessage("optionsExperimental")+')');
-    $('#devmode').html(chrome.i18n.getMessage("optionsDevMode"));
-    $('#reinit').parent().find('>label').first().html(chrome.i18n.getMessage("optionsDevMode")+':');
-    $('#preview').parent().find('>label').first().html(chrome.i18n.getMessage("optionsFeatureTabsPreview")+':');
-    $('#autoresize').parent().find('>label').first().html(chrome.i18n.getMessage("optionsFeatureRearrangeTabs")+':');
-    $('#snapgroups').parent().find('>label').first().html(chrome.i18n.getMessage("optionsFeatureSnapGroups")+':');
-    $('#shortcut_key').parent().find('>label').first().html(chrome.i18n.getMessage("optionsFeatureKeyboardShortcut")+':');
-    $('#updates').parent().find('>label').first().html(chrome.i18n.getMessage("optionsFeatureLatestUpdates")+':');
-  });
-  </script>
+    <title>Tab Sugar Options</title>
+    <link href="css/options.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="js/lib/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.hotkeys-0.8.js" type="text/javascript"></script>
+    <script src="js/lib/JS.Class.2-1-5/core.js" type="text/javascript"></script>
+    <script src="js/lib/JS.Class.2-1-5/stdlib.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.client.js" type="text/javascript"></script>
+
+    <script src="js/ga.js" type="text/javascript"></script>
+    <script src="js/activate_hotkey.js" type="text/javascript"></script>
+    <script src="js/bg/storage.js" type="text/javascript"></script>
+    <script src="js/jquery.tabsugar.utils.js" type="text/javascript"></script>
+    <script src="js/options.js" type="text/javascript"></script>
 </head>
 <body id="options">
-  <script src="js/ga.js" type="text/javascript"></script>
-  <script src="js/activate_hotkey.js" type="text/javascript"></script>
-  <script src="js/bg/storage.js" type="text/javascript"></script>
-  <script src="js/jquery.tabsugar.utils.js" type="text/javascript"></script>
-  <script src="js/options.js" type="text/javascript"></script>
-  <header>
-    <img src="/ico/48.png" />
+<header>
+    <img src="/ico/48.png"/>
+
     <h1>Tab Sugar Options</h1>
     <span id="message" style="display: none"></span>
-  </header>
-  <div id="content">
-    <span id="devmode" href="#" onclick="devmode()"></span>
+</header>
+<div id="content">
+    <span id="devmode"></span>
+
     <h2>Options</h2>
+
     <div class="dev advanced">
-      <label></label>
-      <input type="button" id="reinit" href="#" onclick="reinitialize()" value="Reset Tab Sugar&hellip;"></input>
+        <label></label>
+        <input type="button" id="reinit" value="Reset Tab Sugar&hellip;"/>
     </div>
     <div id="innercontent">
-      <div class="item">
-        <label for="preview" class="main"></label>
-        <input type="checkbox" id="preview" onclick="preview()" /><label class="activate" for="preview"></label>
-      </div>
-      <div class="item">
-        <label for="autoresize" class="main"></label>
-        <input type="checkbox" id="autoresize" onclick="autoresize()" /><label class="activate" for="autoresize"></label>
-      </div>
-      <div class="item">
-        <label for="snapgroups" class="main"></label>
-        <input type="checkbox" id="snapgroups" onclick="snapgroups()" /><label class="activate" for="snapgroups"></label>
-        <span class="experimental"></script>)</span>
-      </div>
-      <div class="item">
-        <label class="main"></label>
-        <input type="checkbox" id="shortcut_ctrl" onclick="shortcut()" /><label for="shortcut_ctrl">Ctrl</label>
-        +<input type="checkbox" id="shortcut_shift" onclick="shortcut()" /><label for="shortcut_shift">Shift</label>
-        +<select id="shortcut_key" onchange="shortcut()">
-          <option value="esc">esc</option>
-          <option value="space">space</option>
+        <div class="item">
+            <label for="preview" class="main"></label>
+            <input type="checkbox" id="preview" />
+            <label class="activate" for="preview"></label>
+        </div>
+        <div class="item">
+            <label for="autoresize" class="main"></label>
+            <input type="checkbox" id="autoresize" />
+            <label class="activate" for="autoresize"></label>
+        </div>
+        <div class="item">
+            <label for="snapgroups" class="main"></label>
+            <input type="checkbox" id="snapgroups" />
+            <label class="activate" for="snapgroups"></label>
+            <span class="experimental">(!)</span>
+        </div>
+        <div class="item">
+            <label class="main"></label>
+            <input type="checkbox" id="shortcut_ctrl" />
+
+            <label for="shortcut_ctrl">Ctrl</label> +<input type="checkbox" id="shortcut_shift" />
+
+            <label for="shortcut_shift">Shift</label>+
+            <select id="shortcut_key">
+                <option value="esc">esc</option>
+                <option value="space">space</option>
+            </select>
+            <span class="experimental"></span>
+        </div>
+        <div class="item">
+            <label for="updates" class="main"></label>
+            <input type="checkbox" id="updates" /><label class="activate" for="updates"></label>
+        </div>
+        <!--
+        <label for="opening">Tab Sugar opens:</label>
+        <select id="opening" onchange="opening()">
+          <option value="new_tab">as a new tab in the current window</option>
+          <option value="new_window">as a new window</option>
+          <option value="every_new_tab">in every new tab</option>
+          <option value="startup">at Chrome startup</option>
         </select>
-        <span class="experimental"></span>
-      </div>
-      <div class="item">
-        <label for="updates" class="main"></label>
-        <input type="checkbox" id="updates" onclick="updates()" /><label class="activate" for="updates"></label>
-      </div>
-      <!--
-      <label for="opening">Tab Sugar opens:</label>
-      <select id="opening" onchange="opening()">
-        <option value="new_tab">as a new tab in the current window</option>
-        <option value="new_window">as a new window</option>
-        <option value="every_new_tab">in every new tab</option>
-        <option value="startup">at Chrome startup</option>
-      </select>
-      -->
-      <div class="item advanced">
-        <label for="traces" class="main">Developer traces:</label>
-        <input type="checkbox" id="traces" onclick="traces()" /><label class="activate" for="traces"></label>
-      </div>
+        -->
+        <div class="item advanced">
+            <label for="traces" class="main">Developer traces:</label>
+            <input type="checkbox" id="traces"/><label class="activate" for="traces"></label>
+        </div>
     </div>
-  </div>
-  <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftabsugar.com&amp;layout=button_count&amp;show_faces=true&amp;width=154&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:154px; height:21px;" allowTransparency="true"></iframe>
+</div>
 </body>
 </html>

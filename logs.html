@@ -27,27 +27,16 @@
 
 <html>
 <head>
-  <title>Tab Sugar Logs</title>
-  <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="js/lib/jquery.1.4.2.min.js" type="text/javascript"></script>
+    <title>Tab Sugar Logs</title>
+    <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
 </head>
 <body class="logs_content">
-  <script src="js/ga.js" type="text/javascript"></script>
-  <script src="js/bg/logs.js" type="text/javascript"></script>
-  <script type="text/javascript">
-  function show_logs() {
-    get_logs(function(logs) {
-      if( $('#logs').text() !== logs) {
-        $('#logs').text(logs)
-      }
-    });
-    setTimeout(show_logs, 1000);
-  }
-  $(document).ready(show_logs);
-  </script>
-  <div id="actions">
+<script src="js/ga.js" type="text/javascript"></script>
+<script src="js/bg/logs.js" type="text/javascript"></script>
+<div id="actions">
     <a href="javascript:remove_logs()">Flush</a>
-  </div>
-  <textarea id="logs">loading...</textarea>
+</div>
+<textarea id="logs">loading...</textarea>
 </body>
 </html>
