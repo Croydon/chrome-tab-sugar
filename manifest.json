@@ -1,45 +1,45 @@
 {
-  "name": "__MSG_extName__",
-  "version": "0.10.0",
-  "manifest_version": 2,
-  "description": "__MSG_extDescription__",
-  "default_locale": "en",
-  "icons": {
-    "16": "ico/16.png",
-    "48": "ico/48.png",
-    "128": "ico/128.png"
-  },
-  "browser_action": {
-    "default_icon": "ico/browser_action_loading.png",
-    "default_title": "__MSG_browserActionLoading__"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*",
-        "ftp://*/*"
-      ],
-      "js": [
-        "js/lib/jquery-2.1.4.min.js",
-        "js/lib/jquery.hotkeys-0.8.js",
-        "js/activate_hotkey.js"
-      ],
-      "run_at": "document_start"
-    }
-  ],
-  "background": {
-    "page": "background.html"
-  },
-  "options_page": "options.html",
-  "minimum_chrome_version": "13",
-  "permissions": [
-    "tabs",
-    "unlimited_storage",
-    "chrome://favicon/",
-    "http://tabsugar.com/",
-    "bookmarks",
-    "contextMenus",
-    "<all_urls>"
-  ]
+    "name": "__MSG_extName__",
+    "version": "0.10.0",
+    "manifest_version": 2,
+    "description": "__MSG_extDescription__",
+    "default_locale": "en",
+    "icons": {
+        "16": "ico/16.png",
+        "48": "ico/48.png",
+        "128": "ico/128.png"
+    },
+    "browser_action": {
+        "default_icon": "ico/browser_action_loading.png",
+        "default_title": "__MSG_browserActionLoading__"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "ftp://*/*"
+            ],
+            "js": [
+                "js/lib/jquery-2.1.4.min.js",
+                "js/lib/jquery.hotkeys-0.8.js",
+                "js/activate_hotkey.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "page": "background.html"
+    },
+    "options_page": "options.html",
+    "minimum_chrome_version": "13",
+    "permissions": [
+        "tabs",
+        "unlimited_storage",
+        "chrome://favicon/",
+        "http://tabsugar.com/",
+        "bookmarks",
+        "contextMenus",
+        "<all_urls>"
+    ]
 }

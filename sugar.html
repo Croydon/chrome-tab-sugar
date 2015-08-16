@@ -26,49 +26,47 @@
 -->
 
 <html>
-<head>
-  <title>Tab Sugar</title>
-  <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-  <script src="js/lib/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
-  <script src="js/lib/JS.Class.2-1-5/core.js" type="text/javascript"></script>
-  <script src="js/lib/JS.Class.2-1-5/stdlib.js" type="text/javascript"></script>
-  <script src="js/lib/jquery.client.js" type="text/javascript"></script>
-</head>
-<body>
-  <script src="js/ga.js" type="text/javascript"></script>
-  <script src="js/bg/logs.js" type="text/javascript"></script>
-  <script src="js/objects.js" type="text/javascript"></script>
-  <script src="js/jquery.tabsugar.utils.js" type="text/javascript"></script>
-  <script src="js/ui/jquery.tabsugar.ui.groupntabs.js" type="text/javascript"></script>
-  <script src="js/ui/jquery.tabsugar.ui.popup.js" type="text/javascript"></script>
-  <script src="js/ui/sugar.js" type="text/javascript"></script>
-  <script src="js/ui/dashboard.interactions.js" type="text/javascript"></script>
-  <script src="js/ui/messages.js" type="text/javascript"></script>
-  <span id="message" style="display: none"></span>
-  <div id="loading"></div>
-  <div id="top">
-    <div class="left">
-      <a href="http://tabsugar.com/" target="_blank"><script>document.write(chrome.i18n.getMessage("extName"))</script></a> &#945; <script>document.write(localStorage.version)</script>
-    </div>
-    <label for="search">Search:</label>
-    <input id="search" type="search" placeholder="search a tab..."></input>
-    <a href="https://chrome.google.com/extensions/detail/libokbfffpaopdjmeofdfpmlanaenaje" target="_blank" class="feedback"><script>document.write(chrome.i18n.getMessage("feedback"))</script></a>
-    |
-    <a rel="Tab Sugar - Options" href="options.html" class="options"><script>document.write(chrome.i18n.getMessage("optionsTitle"))</script></a>
-    |
-    <a rel="Tab Sugar - Logs" href="logs.html" class="logs"><script>document.write(chrome.i18n.getMessage("logsTitle"))</script></a>
-  </div>
-  <div id="dashboard">
-    <div id="updates">
-      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-      <script>
-        if(localStorage.feature_latestupdates == "true") {
-          showLatestUpdates();
-        }
-      </script>
-    </div>
-  </div>
-  <div class="clear"></div>
-</body>
+    <head>
+        <title>Tab Sugar</title>
+        <link href="css/style.css" media="screen" rel="stylesheet" type="text/css">
+        <script src="js/lib/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="js/lib/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+        <script src="js/lib/JS.Class.2-1-5/core.js" type="text/javascript"></script>
+        <script src="js/lib/JS.Class.2-1-5/stdlib.js" type="text/javascript"></script>
+        <script src="js/lib/jquery.client.js" type="text/javascript"></script>
+        <script src="js/lib/twitter-widgets.js"></script>
+
+        <script src="js/ga.js" type="text/javascript"></script>
+        <script src="js/bg/logs.js" type="text/javascript"></script>
+        <script src="js/objects.js" type="text/javascript"></script>
+        <script src="js/jquery.tabsugar.utils.js" type="text/javascript"></script>
+        <script src="js/ui/jquery.tabsugar.ui.groupntabs.js" type="text/javascript"></script>
+        <script src="js/ui/jquery.tabsugar.ui.popup.js" type="text/javascript"></script>
+        <script src="js/ui/sugar.js" type="text/javascript"></script>
+        <script src="js/ui/dashboard.interactions.js" type="text/javascript"></script>
+        <script src="js/ui/messages.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <span id="message" style="display: none"></span>
+
+        <div id="loading"></div>
+        <div id="top">
+            <div class="left">
+                <a href="http://tabsugar.com/" target="_blank" id="sugar-home-link">TagSugar</a> &#945;
+                <span class="version-info"></span>
+            </div>
+            <label for="search">Search:</label>
+            <input id="search" type="search" placeholder="search a tab...">
+            <a href="https://chrome.google.com/extensions/detail/libokbfffpaopdjmeofdfpmlanaenaje" target="_blank" class="feedback"></a>
+            |
+            <a rel="Tab Sugar - Options" href="options.html" class="options"></a>
+            |
+            <a rel="Tab Sugar - Logs" href="logs.html" class="logs"></a>
+        </div>
+        <div id="dashboard">
+            <div id="updates"></div>
+        </div>
+        <div class="clear"></div>
+    </body>
 </html>

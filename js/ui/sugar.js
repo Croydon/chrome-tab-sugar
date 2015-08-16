@@ -24,7 +24,8 @@
 
 // disable console debugs when the developer mode is off
 if (localStorage.debug != "true") {
-    console.debug = function () {
+    console.debug = function ()
+    {
     }
 }
 
@@ -38,7 +39,8 @@ var back = chrome.extension.getBackgroundPage();
  */
 
 // initializes the dashboard with the groups
-function initUI() {
+function initUI()
+{
     console.debug('initUI');
     // handle the situation where Tab Sugar isn't ready: the background page didn't do its work
     if (localStorage.background_page_ready != 'true') {
@@ -49,10 +51,10 @@ function initUI() {
     // update the groups
     var groups = back.groups;
     for (var g in groups) {
-        var group = groups[g];
+        var group    = groups[g];
         var group_ui = group.ui_create();
         $('#dashboard').append(group_ui);
-        group_ui = $('#group-' + group.id);
+        group_ui     = $('#group-' + group.id);
         for (var t in group.tabs) {
             var tab = group.tabs[t];
             group_ui.addTab(tab.ui_create());
@@ -62,46 +64,50 @@ function initUI() {
     }
 }
 
-function showMessage(message) {
+function showMessage(message)
+{
     $('#message').hide().html('<span>' + message + ' <a href="#" onclick="hideMessage()">[x]</a></span>').show('clip');
 }
 
-function hideMessage() {
+function hideMessage()
+{
     $('#message').hide('clip');
 }
 
 // displays the 'latest updates' section in the dashboard
-function showLatestUpdates() {
-    $(document).ready(function () {
+function showLatestUpdates()
+{
+    $(document).ready(function ()
+    {
         var title = $('<p>').addClass('title').html(chrome.i18n.getMessage('latestUpdates'));
         $('#updates').append(title);
     });
     new TWTR.Widget({
-        version: 2,
-        type: 'profile',
-        rpp: 4,
+        version:  2,
+        type:     'profile',
+        rpp:      4,
         interval: 6000,
-        width: 250,
-        height: 300,
-        theme: {
-            shell: {
+        width:    250,
+        height:   300,
+        theme:    {
+            shell:  {
                 background: 'transparent',
-                color: '#ffffff'
+                color:      '#ffffff'
             },
             tweets: {
                 background: 'transparent',
-                color: '#ffffff',
-                links: '#ffffff'
+                color:      '#ffffff',
+                links:      '#ffffff'
             }
         },
         features: {
             scrollbar: false,
-            loop: false,
-            live: false,
-            hashtags: false,
+            loop:      false,
+            live:      false,
+            hashtags:  false,
             timestamp: true,
-            avatars: false,
-            behavior: 'all'
+            avatars:   false,
+            behavior:  'all'
         }
     }).render().setUser('tabsugar').start();
 }
@@ -111,7 +117,8 @@ function showLatestUpdates() {
  * UI INITIALIZATION
  */
 
-$(function () {
+$(function ()
+{
 
     // the Options page opens as a modal popup
     $('#top .options').opensAsPopup();
@@ -119,24 +126,43 @@ $(function () {
     // the Logs page opens as a modal popup
     $('#top .logs').opensAsPopup();
 
+    $('#sugar-home-link')
+        .html(chrome.i18n.getMessage("extName"))
+        .find('.version-info')
+        .html(localStorage.version);
+
+    $('.feedback')
+        .html(chrome.i18n.getMessage("feedback"));
+
+    $('.options')
+        .html(chrome.i18n.getMessage("optionsTitle"));
+
+    $('.logs')
+        .html(chrome.i18n.getMessage("logsTitle"));
+
     initUI();
 
     // disable right-click contextual menu
     $.disableContextMenu();
 
+    if (localStorage.feature_latestupdates == "true") {
+        showLatestUpdates();
+    }
 });
 
 
 // live interactions to the dashboard which responds to actual browser events
 // see background.js for events requests sendings
-chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
+chrome.extension.onRequest.addListener(function (request, sender, sendResponse)
+{
 
     if (request.action == 'loading') {
         var percent = request.percent;
         var message = request.message;
         $('#loading').refreshLoading(percent, message);
         if (percent == "100") {
-            setTimeout(function () {
+            setTimeout(function ()
+            {
                 initUI();
                 $('#loading').hide();
             }, 2000);

@@ -22,474 +22,621 @@
  * Chrome Tab Sugar <http://github.com/arnaud/chrome-tab-sugar>
  */
 
-html,body {
-  font-family: arial;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#ccc)) no-repeat;
-  height: 100%;
-  margin: 0;
-  -webkit-user-select: none;
+html, body {
+    font-family:         arial;
+    background:          -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dddddd), to(#cccccc)) no-repeat;
+    height:              100%;
+    margin:              0;
+    -webkit-user-select: none;
 }
+
 #dashboard {
-  width: 98%;
-  height: 90%;
-  padding: 10px;
+    width:   98%;
+    height:  90%;
+    padding: 10px;
+}
+
+#dashboard:after {
+    content: "";
+    clear:   both;
 }
 
 #top {
-  padding: 0 10px;
-  text-align: right;
-  line-height: 16px;
-  border-bottom: 1px solid #b6bac0;
-  -webkit-box-shadow: 0px 1px 16px rgba(150, 150, 150, .3);
-}
-#top, #top * {
-  font-size: 10px;
-  color: #569;
-}
-#top .left {
-  float: left;
-  color: #777;
-  font-weight: bold;
-}
-#search {
-  width: 20%;
-  min-width: 100px;
-  padding: 0;
-  margin: 0 10px 0 0;
-  opacity: 0.7;
-}
-#search, #top label {
-  display: none;
-}
-.feedback {
-  background: url(/ico/feedback.png) left no-repeat;
-  padding-left: 14px;
-}
-.options {
-  background: url(/ico/options.png) left no-repeat;
-  padding-left: 14px;
+    padding:            0 10px;
+    text-align:         right;
+    line-height:        16px;
+    border-bottom:      1px solid #b6bac0;
+    -webkit-box-shadow: 0px 1px 16px rgba(150, 150, 150, .3);
 }
 
+#top, #top * {
+    font-size: 10px;
+    color:     #556699;
+}
+
+#top .left {
+    float:       left;
+    color:       #777777;
+    font-weight: bold;
+}
+
+#search {
+    width:     20%;
+    min-width: 100px;
+    padding:   0;
+    margin:    0 10px 0 0;
+    opacity:   0.7;
+}
+
+#search, #top label {
+    display: none;
+}
+
+.feedback {
+    background:   url(/ico/feedback.png) left no-repeat;
+    padding-left: 14px;
+}
+
+.options {
+    background:   url(/ico/options.png) left no-repeat;
+    padding-left: 14px;
+}
 
 /* Draggable objects */
 
 .ui-draggable:hover {
-  -webkit-box-shadow: 0 0 6px #ccc;
+    -webkit-box-shadow: 0 0 6px #cccccc;
 }
+
 .ui-draggable-dragging {
-  z-index: 999999;
+    z-index: 999999;
 }
-.ui-resizable { position: relative;}
-.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
-.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
-.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
-.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
-.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
-.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
-.ui-resizable-se { cursor: se-resize; width: 22px; height: 22px; right: 1px; bottom: 1px; }
-.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
-.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
-.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
-.ui-icon-gripsmall-diagonal-se { background: url(/ico/resize.png) no-repeat bottom right; margin: 2px; opacity: .7;}
-*:hover>.ui-icon-gripsmall-diagonal-se { opacity: 1; }
+
+.ui-resizable {
+    position: relative;
+}
+
+.ui-resizable-handle {
+    position:  absolute;
+    font-size: 0.1px;
+    z-index:   99999;
+    display:   block;
+}
+
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
+    display: none;
+}
+
+.ui-resizable-n {
+    cursor: n-resize;
+    height: 7px;
+    width:  100%;
+    top:    -5px;
+    left:   0;
+}
+
+.ui-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    width:  100%;
+    bottom: -5px;
+    left:   0;
+}
+
+.ui-resizable-e {
+    cursor: e-resize;
+    width:  7px;
+    right:  -5px;
+    top:    0;
+    height: 100%;
+}
+
+.ui-resizable-w {
+    cursor: w-resize;
+    width:  7px;
+    left:   -5px;
+    top:    0;
+    height: 100%;
+}
+
+.ui-resizable-se {
+    cursor: se-resize;
+    width:  22px;
+    height: 22px;
+    right:  1px;
+    bottom: 1px;
+}
+
+.ui-resizable-sw {
+    cursor: sw-resize;
+    width:  9px;
+    height: 9px;
+    left:   -5px;
+    bottom: -5px;
+}
+
+.ui-resizable-nw {
+    cursor: nw-resize;
+    width:  9px;
+    height: 9px;
+    left:   -5px;
+    top:    -5px;
+}
+
+.ui-resizable-ne {
+    cursor: ne-resize;
+    width:  9px;
+    height: 9px;
+    right:  -5px;
+    top:    -5px;
+}
+
+.ui-icon-gripsmall-diagonal-se {
+    background: url(/ico/resize.png) no-repeat bottom right;
+    margin:     2px;
+    opacity:    .7;
+}
+
+*:hover > .ui-icon-gripsmall-diagonal-se {
+    opacity: 1;
+}
 
 /* Tabs */
 
-section>ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 5px;
+section > ul {
+    list-style-type: none;
+    margin:          0;
+    padding:         5px;
 }
+
 .tab {
-  position: relative;
-  width: 140px;
-  display: inline;
-  float: left;
-  margin: 2px;
-  cursor: pointer;
+    position: relative;
+    width:    140px;
+    display:  inline;
+    float:    left;
+    margin:   2px;
+    cursor:   pointer;
 }
-.tab>div {
-  position: relative;
-  width: inherit;
+
+.tab > div {
+    position: relative;
+    width:    100%;
 }
+
 .tab .favicon {
-  position: absolute;
-  background: #eee;
-  width: 16px;
-  height: 16px;
-  padding: 5px;
-  top: 0;
-  left: 0;
-  -webkit-border-radius: 0 0 5px 0;
-  -webkit-box-shadow: 1px 1px 2px #ccc;
+    position:              absolute;
+    background:            #eeeeee;
+    width:                 16px;
+    height:                16px;
+    padding:               5px;
+    top:                   0;
+    left:                  0;
+    -webkit-border-radius: 0 0 5px 0;
+    -webkit-box-shadow:    1px 1px 2px #cccccc;
 }
+
 .tab .preview {
-  background: #fff;
-  width: inherit;
-  height: 112px;
-  background-size: 100%;
-  border: 1px solid #ccc;
+    background:      #ffffff;
+    width:           inherit;
+    height:          112px;
+    background-size: 100%;
+    border:          1px solid #cccccc;
 }
-.tab .preview.empty{
-  /*background: -webkit-gradient(linear, 0% 0%, 10% 100%, from(#fff), to(#cecece)) no-repeat;*/
-  background-image: url(), url(/ico/blank_preview.png);
-  background-size: 32px, 112%;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  border: 0;
-  -webkit-transition: background-size .1s ease-out;
+
+.tab .preview.empty {
+    /*background: -webkit-gradient(linear, 0% 0%, 10% 100%, from(#fff), to(#cecece)) no-repeat;*/
+    background-image:    url(/ico/blank_preview.png);
+    background-size:     32px, 112%;
+    background-position: center, center;
+    background-repeat:   no-repeat, no-repeat;
+    border:              0;
+    -webkit-transition:  background-size .1s ease-out;
 }
-.tab:hover .preview.empty{
-  background-size: 40px, 112%;
+
+.tab:hover .preview.empty {
+    background-size: 40px, 112%;
 }
+
 .tab .title {
-  height: 18px;
-  display: block;
-  width: inherit;
-  margin-bottom: 2px;
+    height:        18px;
+    display:       block;
+    width:         inherit;
+    margin-bottom: 2px;
 }
-.tab .title>span {
-  color: #444;
-  font-size: 12px;
-  white-space: nowrap;
-  width: inherit;
-  position: absolute; /* needed for enabling overflow */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
+
+.tab .title > span {
+    color:         #444444;
+    font-size:     12px;
+    white-space:   nowrap;
+    width:         inherit;
+    position:      absolute; /* needed for enabling overflow */
+    overflow:      hidden;
+    text-overflow: ellipsis;
+    text-align:    center;
 }
+
 .tab .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 2px;
-  cursor: pointer;
+    position: absolute;
+    top:      0;
+    right:    0;
+    margin:   2px;
+    cursor:   pointer;
 }
+
 .tab .close:before {
-  color: #999;
-  content: "\00D7";
+    color:   #999999;
+    content: "\00D7";
 }
+
 .tab .url {
-  display: none;
+    display: none;
 }
+
 .tab:hover {
-  -webkit-transition: -webkit-box-shadow .2s ease-out;
+    -webkit-transition: -webkit-box-shadow .2s ease-out;
 }
+
 .stacked_tabs_bg {
-  position: absolute;
-  border: 1px solid #bbb;
-  background: #fff;
-  /*background-image: url(/ico/blank_preview.png);
-  background-size: 112%;*/
+    position:   absolute;
+    border:     1px solid #bbbbbb;
+    background: #ffffff;
+    /*background-image: url(/ico/blank_preview.png);
+    background-size: 112%;*/
 }
+
 .stacked_tabs_bg:first-child {
-  -webkit-box-shadow: 1px 1px 5px #777;
+    -webkit-box-shadow: 1px 1px 5px #777777;
 }
+
 .stacked_tabs_bg_1 {
-  -webkit-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
 }
+
 .stacked_tabs_bg_2 {
-  -webkit-transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
 }
+
 .stacked_tabs_bg_3 {
-  -webkit-transform: rotate(12deg);
+    -webkit-transform: rotate(12deg);
 }
+
 .stacked_tabs_bg_4 {
-  -webkit-transform: rotate(16deg);
+    -webkit-transform: rotate(16deg);
 }
+
 .stacked_tabs_bg_5 {
-  -webkit-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
 }
+
 .stacked_tabs_bg.first {
-  background: #f8f8f8;
+    background: #f8f8f8;
 }
+
 .fan_icon {
-  width: 24px;
-  height: 24px;
-  background: url(/ico/pan.png) center no-repeat;
-  cursor: pointer;
-  text-align: center;
-  margin: 0 auto;
-  opacity: .5;
-  -webkit-transition: opacity 0.2s ease-in;
+    width:              24px;
+    height:             24px;
+    background:         url(/ico/pan.png) center no-repeat;
+    cursor:             pointer;
+    text-align:         center;
+    margin:             0 auto;
+    opacity:            .5;
+    -webkit-transition: opacity 0.2s ease-in;
 }
+
 .fan_icon:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Groups */
 
 .group {
-  -webkit-box-shadow: 2px 2px 6px #ccc;
-  -webkit-border-radius: 5px;
-  width: 586px;
-  background: #eee;
-  padding-bottom: 18px;
-  margin: 10px;
-  float: left;
+    -webkit-box-shadow:    2px 2px 6px #cccccc;
+    -webkit-border-radius: 5px;
+    width:                 586px;
+    background:            #eeeeee;
+    padding-bottom:        18px;
+    margin:                10px;
+    float:                 left;
 }
-.group>.title {
-  display: inline;
-  width: 80%;
-  margin: 4px;
-  padding: 2px;
-  font-size: 12px;
-  background: transparent;
-  border: transparent;
-  color: #777;
-  -webkit-transition: border-color .2s ease;
+
+.group > .title {
+    display:            inline;
+    width:              80%;
+    margin:             4px;
+    padding:            2px;
+    font-size:          12px;
+    background:         transparent;
+    border:             transparent;
+    color:              #777777;
+    -webkit-transition: border-color .2s ease;
 }
-.group>.title:hover {
-  border: 1px solid #ccc;
-  padding: 1px;
+
+.group > .title:hover {
+    border:  1px solid #cccccc;
+    padding: 1px;
 }
+
 .group .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 2px 6px;
-  cursor: pointer;
+    position:    absolute;
+    top:         0;
+    right:       0;
+    margin:      4px 5px 0 0;
+    cursor:      pointer;
+    font-size:   150%;
+    line-height: 12px;
 }
+
 .group .close:before {
-  color: #999;
-  content: "\00D7";
-  text-shadow: 1px 1px 1px #fff;
+    color:       #999999;
+    content:     "\00D7";
+    text-shadow: 1px 1px 1px #ffffff;
 }
+
 .group .new_tab {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  margin: 10px;
-  background: url(/ico/new_tab.png) no-repeat;
-  opacity: 0.2;
-  cursor: pointer;
-  -webkit-transition: opacity .2s ease;
+    position:           absolute;
+    bottom:             0;
+    left:               0;
+    width:              16px;
+    height:             16px;
+    margin:             10px;
+    background:         url(/ico/new_tab.png) no-repeat;
+    opacity:            0.2;
+    cursor:             pointer;
+    -webkit-transition: opacity .2s ease;
 }
+
 .group .new_tab:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
+
 .group .debug {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: #999;
-  margin-left: 4px;
-  font-size: 10px;
+    position:    absolute;
+    bottom:      0;
+    left:        0;
+    color:       #999999;
+    margin-left: 4px;
+    font-size:   10px;
 }
+
 .group.app {
-  background: #eef;
+    background: #eeeeff;
 }
+
 .group.popup {
-  background: #efe;
+    background: #eeffee;
 }
+
 .snapper {
-  position: absolute;
-  z-index: -10;
+    position: absolute;
+    z-index:  -10;
 }
+
 .snapper.main {
-  top: -8px;
-  left: -8px;
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  /*border: 8px solid rgba(100, 100, 255, 0);*/
+    top:     -8px;
+    left:    -8px;
+    width:   100%;
+    height:  100%;
+    padding: 8px;
+    /*border: 8px solid rgba(100, 100, 255, 0);*/
 }
+
 .snapper.top, .snapper.left, .snapper.right, .snapper.bottom {
-  /*background: rgba(100, 100, 255, 0);*/
+    /*background: rgba(100, 100, 255, 0);*/
 }
+
 .snapper.top {
-  top: -1px;
-  left: -2000px;
-  width: 4000px;
-  height: 1px;
+    top:    -1px;
+    left:   -2000px;
+    width:  4000px;
+    height: 1px;
 }
+
 .snapper.bottom {
-  bottom: -1px;
-  left: -2000px;
-  width: 4000px;
-  height: 1px;
+    bottom: -1px;
+    left:   -2000px;
+    width:  4000px;
+    height: 1px;
 }
+
 .snapper.left {
-  top: -2000px;
-  left: -1px;
-  width: 1px;
-  height: 4000px;
+    top:    -2000px;
+    left:   -1px;
+    width:  1px;
+    height: 4000px;
 }
+
 .snapper.right {
-  top: -2000px;
-  right: -1px;
-  width: 1px;
-  height: 4000px;
+    top:    -2000px;
+    right:  -1px;
+    width:  1px;
+    height: 4000px;
 }
 
 .fangroup {
-  position: absolute;
-  left: -10px;
-  top: -10px;
-  -webkit-border-radius: 4px;
-  -webkit-box-shadow: 2px 2px 6px #888;
-  width: 616px;
-  min-height: 154px;
-  background: rgba(50, 50, 50, 0.8);
-  padding-bottom: 10px;
-  margin: 10px;
-  padding: 8px 5px;
-  z-index: 99999999;
+    position:              absolute;
+    left:                  -10px;
+    top:                   -10px;
+    -webkit-border-radius: 4px;
+    -webkit-box-shadow:    2px 2px 6px #888888;
+    width:                 616px;
+    min-height:            154px;
+    background:            rgba(50, 50, 50, 0.8);
+    padding-bottom:        10px;
+    margin:                10px;
+    padding:               8px 5px;
+    z-index:               99999999;
 
 }
+
 .fangroup .tab {
-  padding: 2px 5px;
+    padding: 2px 5px;
 }
-.fangroup .tab .title>span {
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
+
+.fangroup .tab .title > span {
+    color:       #ffffff;
+    text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.8);
 }
 
 .clear {
-  clear: left;
+    clear: both;
 }
 
 #message {
-  position: fixed;
-  top: 20px;
-  width: 100%;
-  text-align: center;
+    position:   fixed;
+    top:        20px;
+    width:      100%;
+    text-align: center;
 }
-#message>span {
-  -webkit-border-radius: 3px;
-  background: #f99;
-  border: 1px solid #e55;
-  padding: 1px 5px;
-  font-weight: bold;
-  font-size: 12px;
+
+#message > span {
+    -webkit-border-radius: 3px;
+    background:            #ff9999;
+    border:                1px solid #ee5555;
+    padding:               1px 5px;
+    font-weight:           bold;
+    font-size:             12px;
 }
+
 #message a {
-  text-decoration: none;
-  color: blue;
+    text-decoration: none;
+    color:           blue;
 }
 
 /* Twitter updates */
 
 #updates {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  text-shadow: 1px 1px 3px #222;
-}
-#updates .title {
-  padding-right: 12px;
-  color: #fff;
-  font-size: 12px;
-  text-align: right;
-}
-#updates .twtr-hd,
-#updates .twtr-ft {
-  display: none;
+    position:    fixed;
+    bottom:      0;
+    right:       0;
+    text-shadow: 1px 1px 3px #222222;
 }
 
+#updates .title {
+    padding-right: 12px;
+    color:         #ffffff;
+    font-size:     12px;
+    text-align:    right;
+}
+
+#updates .twtr-hd,
+#updates .twtr-ft {
+    display: none;
+}
 
 /* Popups */
 
 .popup_container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,.6);
+    position:   absolute;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+    background: rgba(255, 255, 255, .6);
 }
+
 .popup {
-  top: 25px;
-  width: 600px;
-  height: 431px;
-  z-index: 99999999999999999;
-  border: 1px solid #000;
-  background: #4D94EA;
-  margin: 0 auto;
-  padding: 4px;
+    top:        25px;
+    width:      600px;
+    height:     431px;
+    z-index:    99999999999999999;
+    border:     1px solid #000000;
+    background: #4d94ea;
+    margin:     0 auto;
+    padding:    4px;
 }
-.popup>.top {
-  background: #E5EFFB;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 0.6em 0.7em;
+
+.popup > .top {
+    background:  #e5effb;
+    font-size:   13px;
+    font-weight: bold;
+    padding:     0.6em 0.7em;
 }
-.popup>.top>.title {
-  display: inline;
-  font-weight: 700;
+
+.popup > .top > .title {
+    display:     inline;
+    font-weight: 700;
 }
-.popup>.top>.close {
-  display: inline;
-  float: right;
-  background: url(/ico/popup_close.png) no-repeat;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
+
+.popup > .top > .close {
+    display:    inline;
+    float:      right;
+    background: url(/ico/popup_close.png) no-repeat;
+    width:      16px;
+    height:     16px;
+    cursor:     pointer;
 }
-.popup>iframe {
-  background: #fff;
-  width: 600px;
-  height: 400px;
-  border: none;
-  overflow: hidden;
+
+.popup > iframe {
+    background: #ffffff;
+    width:      600px;
+    height:     400px;
+    border:     none;
+    overflow:   hidden;
 }
 
 /* Loading */
 
 #loading {
-  display: none;
-  z-index: 99999999;
-  background: #eee;
-  border: 2px solid #fff;
-  padding: 15px;
-  position: absolute;
-  left: 50%;
-  margin-left: -117px;
-  width: 200px;
-  top: 80px;
+    display:     none;
+    z-index:     99999999;
+    background:  #eeeeee;
+    border:      2px solid #ffffff;
+    padding:     15px;
+    position:    absolute;
+    left:        50%;
+    margin-left: -117px;
+    width:       200px;
+    top:         80px;
 }
+
 #loading span {
-  font-size: 12px;
-  padding-bottom: 5px;
-  display: block;
-  text-align: center;
+    font-size:      12px;
+    padding-bottom: 5px;
+    display:        block;
+    text-align:     center;
 }
+
 #loading progress {
-  display: block;
-  width: inherit;
+    display: block;
+    width:   inherit;
 }
+
 #loading a {
-  font-size: 10px;
-  padding-top: 10px;
-  margin-bottom: -4px;
-  display: block;
-  text-align: right;
-  text-decoration: none;
+    font-size:       10px;
+    padding-top:     10px;
+    margin-bottom:   -4px;
+    display:         block;
+    text-align:      right;
+    text-decoration: none;
 }
 
 /* Logs */
 
 .logs_content #actions {
-  height: 20px;
-  background: #4D94EA;
+    height:     20px;
+    background: #4d94ea;
 }
+
 .logs_content #actions a {
-  color: #fff;
-  font-size: 12px;
-  text-decoration: none;
+    color:           #ffffff;
+    font-size:       12px;
+    text-decoration: none;
 }
+
 .logs_content #actions a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
 .logs_content #logs {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  font-size: 11px;
-  font-family: courier;
+    position:    absolute;
+    top:         20px;
+    left:        0;
+    right:       0;
+    bottom:      0;
+    border:      0;
+    font-size:   11px;
+    font-family: courier;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }

@@ -33,6 +33,9 @@ chrome.extension.onRequest.addListener(function (request, sender, sendResponse) 
     if (interaction == "open") {
         openDashboard();
 
+    } else if (interaction === 'loading') {
+        console.log(request);
+
     } else if (request.action == "gimme the shortcut key") {
         // BI12 – Use the extension shortcut key
         sendResponse({shortcut_key: localStorage.shortcut_key});
